@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="dice.css">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <title>Play Dice </title>
+</head>
+  
+<body>
+    <div class="container">
+        <h1>play if you dare </h1>
+  
+        <div class="dice">
+            <p>You</p>
+            <img class="die1" src="/Users/edwardmacenulty/Desktop/Code Immersives/WEBDEV/EM_Dice/Dice_img/Die.png">
+        </div>
+  
+        <div class="dice">
+            <p>Me</p>
+            <img class="die2" src="/Users/edwardmacenulty/Desktop/Code Immersives/WEBDEV/EM_Dice/Dice_img/Die.png">
+        </div>
+    </div>
+  
+    <div class="container bottom">
+        <button type="button" class="button"
+            onClick="rollTheDice()">
+            let em roll
+        </button>
+    </div>
+    <script>	
+    function rollTheDice() {
+      setTimeout(function () {
+        var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+        var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+  
+        document.querySelector(".die1").setAttribute("src",
+          "pip" + randomNumber1 + ".png");
+  
+        document.querySelector(".die2").setAttribute("src",
+          "pip" + randomNumber2 + ".png");
+  
+        if (randomNumber1 === randomNumber2) {
+          document.querySelector("h1").innerHTML = "We both won!?";
+        }
+  
+        else if (randomNumber1 < randomNumber2) {
+          document.querySelector("h1").innerHTML
+                  = ("I WIN");
+        }
+  
+        else {
+          document.querySelector("h1").innerHTML
+                  = ( "You WIN");
+        }
+      }, 500); }
+   </script>
+</body>
+  
+</html>
